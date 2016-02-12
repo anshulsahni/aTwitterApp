@@ -1,0 +1,9 @@
+pages.controller("ProfileController",function($scope,userService,$routeParams){	
+	userService.get({userHandle:$routeParams.userHandle},function(res){
+		if(res.message.UserNotFound)
+			$scope.userNotFound=true;
+		else{
+			$scope.userProfile=res.body;
+		}
+	});	
+})

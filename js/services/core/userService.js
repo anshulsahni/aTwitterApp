@@ -1,0 +1,24 @@
+services.factory("userService",function($resource){
+	return $resource("http://localhost:3000/users/:userHandle",{userHandle:"@userHandle"},{
+		signIn:{
+			method:"POST",
+			url:"http://localhost:3000/users/sign_in"
+		},
+		signUp:{
+			method:"POST",
+			url:"http://localhost:3000/users",
+		},
+		follow:{
+			method:"PUT",
+			url:"http://localhost:3000/users/follow"
+		},
+		follows:{
+			method:"GET",
+			url:"http://localhost:3000/users/:userHandle/follow"
+		},
+		allHandles:{
+			method:"GET",
+			url:"http://localhost:3000/users/all"
+		}
+	})
+})

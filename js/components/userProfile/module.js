@@ -1,0 +1,1 @@
+var userProfile=angular.module("userProfile",[]);

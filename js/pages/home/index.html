@@ -1,0 +1,24 @@
+<div class='container-fluid'>
+	<header></header>
+	<div class='row' style='position:relative;margin:100px auto;'>
+		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<user-profile profile='userProfile.body'></user-profile>
+		</div>
+		<div class='col-md-4'></div>
+	</div>
+	<div class='row'>
+		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<tweet-create-form socket="sock"></tweet-create-form>				
+		</div>
+		<div class='col-md-4'></div>
+	</div>
+	<div class='row' ng-repeat="twet in tweets">
+		<div class='col-md-4'></div>
+		<div class='col-md-4' >
+			<tweet-view tweet="twet"></tweet-view>
+		</div>
+		<div class='col-md-4'></div>
+	</div>
+</div>

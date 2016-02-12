@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>aTwitter</title>
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+		<script type="text/javascript" src="./js/vendor/socket.js"></script>
+		<script type="text/javascript" src="./js/vendor/angular.js"></script>
+		<script type="text/javascript" src="./js/vendor/angular-route.js"></script>
+		<script type="text/javascript" src="./js/vendor/angular-resource.js"></script>
+		<script type="text/javascript" src="./js/vendor/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="./js/vendor/jquery.min.js"></script>
+
+		<script type="text/javascript" src="./js/services/module.js"></script>
+
+		<script type="text/javascript" src="./js/services/core/module.js"></script>
+		<script type="text/javascript" src="./js/services/core/userService.js"></script>
+
+		<script type="text/javascript" src="./js/components/module.js"></script>
+
+		<script type="text/javascript" src="./js/components/header/module.js"></script>
+		<script type="text/javascript" src="./js/components/header/controller.js"></script>
+		<script type="text/javascript" src="./js/components/header/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/signInForm/module.js"></script>
+		<script type="text/javascript" src="./js/components/signInForm/controller.js"></script>
+		<script type="text/javascript" src="./js/components/signInForm/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/signUpForm/module.js"></script>
+		<script type="text/javascript" src="./js/components/signUpForm/controller.js"></script>
+		<script type="text/javascript" src="./js/components/signUpForm/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/tweetView/module.js"></script>
+		<script type="text/javascript" src="./js/components/tweetView/controller.js"></script>
+		<script type="text/javascript" src="./js/components/tweetView/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/tweetCreateForm/module.js"></script>
+		<script type="text/javascript" src="./js/components/tweetCreateForm/controller.js"></script>
+		<script type="text/javascript" src="./js/components/tweetCreateForm/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/userProfile/module.js"></script>
+		<script type="text/javascript" src="./js/components/userProfile/controller.js"></script>
+		<script type="text/javascript" src="./js/components/userProfile/directive.js"></script>
+
+		<script type="text/javascript" src="./js/pages/module.js"></script>
+		<script type="text/javascript" src="./js/pages/signIn/controller.js"></script>
+		<script type="text/javascript" src="./js/pages/signUp/controller.js"></script>
+		<script type="text/javascript" src="./js/pages/home/controller.js"></script>
+		<script type="text/javascript" src="./js/pages/profile/controller.js"></script>
+
+		<script type="text/javascript" src="./js/index.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="./assets/css/vendor/bootstrap.min.css">
+	</head>
+	<body ng-app='aTwitter'>
+		<ng-view></ng-view>		
+	</body>
+</html>

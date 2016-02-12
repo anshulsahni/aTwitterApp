@@ -1,0 +1,13 @@
+<div class='panel panel-danger'>
+	<div class='panel-heading'>
+		<div class='panel-title'>
+			{{profile.name}}
+		</div>
+	</div>
+	<div class='panel-body'>
+		Email: {{profile.email}}
+		<div class='small text-danger'><span style='font-weight:900;'>User Handle: </span>{{profile.userHandle}}</div>
+		<button class='btn btn-danger pull-right' ng-show='followBtn' ng-click="follow(profile.userHandle)">Follow</button>
+	</div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class='panel panel-danger'>
+	<div class='panel-heading'>
+		<div class='panel-title'>Sign In</div>	
+	</div>
+	<div class='panel-body'>
+			<form role="form" ng-submit='signIn()'>
+				<span class='text-danger small'>{{logInError}}</span>
+				<div class='form-group'>
+					<input type='text' ng-model='userHandle' class='form-control' id='userHandle' placeholder="Enter User Handle">
+				</div>
+				<div class='form-group'>
+					<input type='password' ng-model='password' class='form-control' id='password' placeholder="Enter User Password">
+				</div>	
+				<div class='form-group'>
+					<button type='submit' class='btn btn-danger'>Log In</button>
+					<a class='btn btn-danger pull-right' href="#/signUp">Sign Up</a>
+				</div>
+
+			</form>
+
+	</div>	
+</div>

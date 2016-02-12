@@ -1,0 +1,27 @@
+<div class='panel panel-danger'>
+	<div class='panel-heading'>
+		<div class='panel-title'>Sign Up</div>	
+	</div>
+	<div class='panel-body'>
+			<form role="form" ng-submit='signUp()'>
+				<span class='small text-danger'>{{signUpError}}</span>
+				<div class='form-group'>
+					<input type='text' ng-model='name' class='form-control' id='name' placeholder='Enter Your Name'>
+				</div>
+				<div class='form-group'>
+					<input type='text' ng-model="email" class='form-control' id='email' placeholder='Enter Your E-Mail'>
+				</div>
+				<div class='form-group'>
+					<input type='text' ng-model='userHandle' class='form-control' id='userHandle' placeholder='Enter Your User Handle'>
+				</div>
+				<div class='form-group'>
+					<input type='password' ng-model='password' class='form-control' id='password' placeholder='Enter Your Password'>
+				</div>	
+				<span class='small text-success'>{{successSignUp}}</span>				
+				<div class='form-group'>
+					<button type='submit' class='btn btn-danger'>Sign Up</button>
+					<a class='btn btn-danger pull-right' href="#/signIn">Log In</a>
+				</div>
+			</form>
+	</div>	
+</div>
