@@ -1,44 +1,44 @@
 services.factory("userService",function($resource){
-	return $resource("http://localhost:3000/users/:userHandle",{userHandle:"@userHandle"},{
+	return $resource("http://anshulsahni.me:3000/users/:userHandle",{userHandle:"@userHandle"},{
 		signIn:{
 			method:"POST",
-			url:"http://localhost:3000/users/sign_in"
+			url:"http://anshulsahni.me:3000/users/sign_in"
 		},
 		signUp:{
 			method:"POST",
-			url:"http://localhost:3000/users",
+			url:"http://anshulsahni.me:3000/users",
 		},
 		signOut:{
 			method:"PUT",
-			url:"http://localhost:3000/users/sign_out"
+			url:"http://anshulsahni.me:3000/users/sign_out"
 		},
 		follow:{
 			method:"PUT",
-			url:"http://localhost:3000/users/follow"
+			url:"http://anshulsahni.me:3000/users/follow"
 		},
 		unfollow:{
 			method:"PUT",
-			url:"http://localhost:3000/users/unfollow"
+			url:"http://anshulsahni.me:3000/users/unfollow"
 		},
 		follows:{
 			method:"GET",
-			url:"http://localhost:3000/users/:userHandle/follow"
+			url:"http://anshulsahni.me:3000/users/:userHandle/follow"
 		},
 		allHandles:{
 			method:"GET",
-			url:"http://localhost:3000/users/all"
+			url:"http://anshulsahni.me:3000/users/all"
 		},
 		notifications:{
 			method:"POST",
-			url:"http://localhost:3000/users/notifications"
+			url:"http://anshulsahni.me:3000/users/notifications"
 		},
 		unreadNotifications:{
 			method:"POST",
-			url:"http://localhost:3000/users/notifications/unread"
+			url:"http://anshulsahni.me:3000/users/notifications/unread"
 		},
 		markNotifRead:{
 			method:"PUT",
-			url:"http://localhost:3000/users/notifications/read"
+			url:"http://anshulsahni.me:3000/users/notifications/read"
 		}
 	})
 })
