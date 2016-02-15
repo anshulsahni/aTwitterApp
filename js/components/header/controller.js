@@ -1,4 +1,15 @@
-header.controller("HeaderController",function($scope){
-	// $scope.notifCount=10;
-	console.log($scope.notifCount);
+header.controller("HeaderController",function($scope,userService,$location){
+	$scope.signOut=function(){
+		var user=new userService
+		user.tokenId=localStorage.Identifier;
+		user.userHandle=localStorage.userHandle;
+		user.$signOut(function(){
+			console.log(user);
+			if(!user.error && user.message.TokenSuccessfullyExpired){
+				localStorage.removeItem("Identifier");
+				localStorage.removeItem("userHandle");
+				$location.path("/signIn")
+			}
+		})
+	}
 })

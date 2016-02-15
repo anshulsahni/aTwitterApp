@@ -1,5 +1,6 @@
 signUpForm.controller("SignUpFormController",function($scope,userService){
 	$scope.signUp=function(){
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if(!$scope.name || !$scope.email || !$scope.password || !$scope.userHandle){
 			$scope.signUpError="Please Fill All the Fields";
 			return;
@@ -10,6 +11,10 @@ signUpForm.controller("SignUpFormController",function($scope,userService){
 		}
 		else if($scope.userHandle.indexOf(" ")>-1){
 			$scope.signUpError="User Handle Cannot Contain Space";
+			return;
+		}
+		else if(re.test($scope.email)){
+			$scope.signUpError="Invalid Email format";
 			return;
 		}
 		new_user=new userService();
