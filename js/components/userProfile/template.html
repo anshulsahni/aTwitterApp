@@ -6,8 +6,10 @@
 	</div>
 	<div class='panel-body'>
 		Email: {{profile.email}}
-		<div class='small text-danger'><span style='font-weight:900;'>User Handle: </span>{{profile.userHandle}}</div>
-		<button class='btn btn-danger pull-right' ng-show='followBtn' ng-click="follow(profile.userHandle)">Follow</button>
+		<div class='small text-danger'><a ng-href="#/{{profile.userHandle}}">{{profile.userHandle}}</a></div>
+		<div ng-hide="self">
+			<button class='btn btn-danger pull-right' ng-show='followBtn' ng-click="follow(profile.userHandle)" ng-hide="self">Follow</button>
+			<button class='btn btn-danger pull-right' ng-hide="followBtn" ng-click="unfollow(profile.userHandle)">Unfollow</button>
+		</div>
 	</div>
-
 </div>

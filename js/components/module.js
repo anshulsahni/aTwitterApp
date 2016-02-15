@@ -1,1 +1,10 @@
-angular.module("components",["signInForm","header","signUpForm","tweetCreateForm","tweetView","userProfile"]);
+angular.module("components",[
+	"signInForm",
+	"header",
+	"signUpForm",
+	"tweetCreateForm",
+	"tweetView",
+	"userProfile",
+	"notifyBox",
+	"notif"
+	]);

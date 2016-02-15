@@ -1,0 +1,1 @@
+var notifyBox=angular.module("notifyBox",[]);

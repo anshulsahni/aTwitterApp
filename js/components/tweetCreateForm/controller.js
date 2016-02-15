@@ -1,21 +1,25 @@
 tweetCreateForm.controller("TweetCreateFormController",function($scope,userService){
 	var socket=$scope.socket;
 	$scope.allUsers=userService.allHandles();
-	console.log($scope.users);
+	console.log($scope.allUsers);
+	$scope.allUsers.$promise.then(function(){
+		$('#content').triggeredAutocomplete({
+			hidden: '#hidden_inputbox',
+			source: $scope.allUsers.body,
+			trigger: "@"
+		})	
+	})
+	
 	$scope.createTweet=function(){
+		// console.log($scope.content);
 		if(!$scope.content)
 			$scope.createTweetError="Please Fill the content";
 		else{
-			var new_tweet={content:$scope.content,userHandle:localStorage.userHandle,tokenId:localStorage.Identifier};
+			var content=$("#content").val();
+			console.log(content);
+			var new_tweet={content:content,userHandle:localStorage.userHandle,tokenId:localStorage.Identifier};
 			socket.emit("TweetCreated",new_tweet);
-			// $scope.createTweetSuccess="Tweet Successfully Created";
 			$scope.content="";
 		}
 	}
-	$scope.onSelect = function ($item, $model, $label) {
-	    console.log($item);
-	    console.log($model);
-	    console.log($label);
-	};
-
 })

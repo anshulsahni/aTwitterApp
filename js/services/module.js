@@ -1,1 +1,1 @@
-angular.module("services",["core"]);
+angular.module("services",["core","sockets"]);

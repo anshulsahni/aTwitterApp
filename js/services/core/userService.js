@@ -12,6 +12,10 @@ services.factory("userService",function($resource){
 			method:"PUT",
 			url:"http://localhost:3000/users/follow"
 		},
+		unfollow:{
+			method:"PUT",
+			url:"http://localhost:3000/users/unfollow"
+		},
 		follows:{
 			method:"GET",
 			url:"http://localhost:3000/users/:userHandle/follow"
@@ -19,6 +23,18 @@ services.factory("userService",function($resource){
 		allHandles:{
 			method:"GET",
 			url:"http://localhost:3000/users/all"
+		},
+		notifications:{
+			method:"POST",
+			url:"http://localhost:3000/users/notifications"
+		},
+		unreadNotifications:{
+			method:"POST",
+			url:"http://localhost:3000/users/notifications/unread"
+		},
+		markNotifRead:{
+			method:"PUT",
+			url:"http://localhost:3000/users/notifications/read"
 		}
 	})
 })

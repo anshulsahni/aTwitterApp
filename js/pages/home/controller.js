@@ -1,26 +1,55 @@
-pages.controller("HomeController",function($scope,userService){
+pages.controller("HomeController",function($scope,userService,tweetSocket){
 	var tokenId=localStorage.Identifier;
 	var userHandle=localStorage.userHandle;
-	$scope.bool=true;
-	var socket=io.connect("http://localhost:3000",{query:"tokenId="+tokenId+"&userHandle="+userHandle});
+	$scope.notifCount=0;
+	var socket=tweetSocket;
+
 	$scope.userProfile=userService.get({userHandle:userHandle});
+	$scope.userProfile.$promise.then(function($location){
+		if($scope.userProfile.error){
+			localStorage.clear();
+			$location.path("/signIn")
+		}
+	})
+
+	$scope.profiles=userService.get();
+	console.log($scope.profiles);
+
 	$scope.sock=socket;
 	$scope.tweets=[];
-	socket.on("TweetsIncoming",function(data){
-		// console.log(data);
-		// $scope.tweets = data.data;
-		for(i in data.data){
-			$scope.tweets.push(data.data[i]);
-			$scope.$apply();
-		}
-		console.log($scope.tweets);
-	})
+	$scope.alerts=[];
+	$scope.followTweets=[];
+	$scope.allTweets=[];
+	
+
 	socket.on("TweetUpdate",function(data){
 		$scope.tweets.unshift(data.data);
+		$scope.$apply();
+	})
+
+	socket.on("TweetNotify",function(data){
+		$scope.notifCount++;
+		console.log(data);
+		$scope.$apply();
+
+	})
+	socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
+	socket.on("TransferFollowsTweets",function(data){
+		$scope.followTweets=$scope.followTweets.concat(data.data)
 		console.log(data.data);
 		$scope.$apply();
 	})
-	
-	// console.log($scope.sock);
+	socket.emit("AllTweets");
+	socket.on("TransferAllTweets",function(data){
+		$scope.allTweets=$scope.allTweets.concat(data.data);
+		$scope.$apply();
+	})
+
+	var user=new userService;
+	user.tokenId=tokenId;
+	user.userHandle=userHandle;
+	user.$unreadNotifications(function(){
+		$scope.notifCount=user.body.length
+	})
 
 })

@@ -1,0 +1,10 @@
+notifyBox.directive("notifyBox",function(){
+	return{
+		templateUrl:"./js/components/notifyBox/template.html",
+		controller:"NotifyBoxController",
+		replace:true,
+		scope:{
+			notifications:'='
+		}
+	}
+})

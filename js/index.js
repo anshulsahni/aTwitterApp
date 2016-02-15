@@ -38,6 +38,16 @@ angular.module("aTwitter",[
  				}
  			}
  		})
+ 		.when("/notifications",{
+ 			templateUrl:"./js/pages/notifications/index.html",
+ 			controller:"NotificationsController",
+ 			resolve:{
+ 				checkLogin:function($location){
+ 					if(!localStorage.Identifier)
+ 						$location.path("/signIn")
+ 				}
+ 			}
+ 		})
  		.when("/:userHandle",{
  			templateUrl:"./js/pages/profile/index.html",
  			controller:"ProfileController",

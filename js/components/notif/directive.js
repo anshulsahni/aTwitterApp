@@ -1,0 +1,10 @@
+notif.directive("notif",function(){
+	return{
+		templateUrl:"./js/components/notif/template.html",
+		controller:"NotifController",
+		replace:true,
+		scope:{
+			details:'='
+		}
+	}
+})

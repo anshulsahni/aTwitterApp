@@ -3,17 +3,14 @@
 		<div class='panel-title'>Create Tweet</div>	
 	</div>
 	<div class='panel-body'>
-			<form role="form" ng-submit='createTweet()'>
+			<form role="form" ng-submit='createTweet()' name='createTweetForm'>
 				<span class='small text-danger'>{{createTweetError}}</span>
 				<div class='form-group'>
-					<textarea class='form-control' ng-model='content' placeholder='Enter the Content' row=3 ></textarea>
+					<textarea class='form-control' ng-model='content' placeholder='Enter the Content' row=3 id='content'></textarea>
 				</div>
 				<span class='small text-success'>{{createTweetSuccess}}</span>
 				<div class='form-group'>
 					<button type='submit' class='btn btn-danger'>Create Tweet</button>
-				</div>
-				<div class='form-group'>
-					<!-- <input type='text' class='form-control' uib-typeahead="allUsers.body | filter:$viewValue" ng-model='ansh'> -->
 				</div>
 			</form>
 	</div>	

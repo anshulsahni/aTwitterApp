@@ -5,7 +5,11 @@ signUpForm.controller("SignUpFormController",function($scope,userService){
 			return;
 		}
 		else if($scope.password.length<4){
-			$scope.password="Password should be minium 4 characters";
+			$scope.signUpError="Password should be minium 4 characters";
+			return;
+		}
+		else if($scope.userHandle.indexOf(" ")>-1){
+			$scope.signUpError="User Handle Cannot Contain Space";
 			return;
 		}
 		new_user=new userService();

@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>aTwitter</title>
@@ -10,12 +8,18 @@
 		<script type="text/javascript" src="./js/vendor/angular-route.js"></script>
 		<script type="text/javascript" src="./js/vendor/angular-resource.js"></script>
 		<script type="text/javascript" src="./js/vendor/ui-bootstrap.js"></script>
-		<script type="text/javascript" src="./js/vendor/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/vendor/jquery-1.7.js"></script>
+		<script type="text/javascript" src="./js/vendor/jquery-ui-1.8.js"></script>
+		<script type="text/javascript" src="./js/vendor/autocomplete.js"></script>
 
 		<script type="text/javascript" src="./js/services/module.js"></script>
 
 		<script type="text/javascript" src="./js/services/core/module.js"></script>
 		<script type="text/javascript" src="./js/services/core/userService.js"></script>
+		<script type="text/javascript" src="./js/services/core/tweetService.js"></script>
+
+		<script type="text/javascript" src="./js/services/sockets/module.js"></script>
+		<script type="text/javascript" src="./js/services/sockets/tweetSocket.js"></script>
 
 		<script type="text/javascript" src="./js/components/module.js"></script>
 
@@ -43,17 +47,27 @@
 		<script type="text/javascript" src="./js/components/userProfile/controller.js"></script>
 		<script type="text/javascript" src="./js/components/userProfile/directive.js"></script>
 
+		<script type="text/javascript" src="./js/components/notifyBox/module.js"></script>
+		<script type="text/javascript" src="./js/components/notifyBox/controller.js"></script>
+		<script type="text/javascript" src="./js/components/notifyBox/directive.js"></script>
+
+		<script type="text/javascript" src="./js/components/notif/module.js"></script>
+		<script type="text/javascript" src="./js/components/notif/controller.js"></script>
+		<script type="text/javascript" src="./js/components/notif/directive.js"></script>
+
 		<script type="text/javascript" src="./js/pages/module.js"></script>
 		<script type="text/javascript" src="./js/pages/signIn/controller.js"></script>
 		<script type="text/javascript" src="./js/pages/signUp/controller.js"></script>
 		<script type="text/javascript" src="./js/pages/home/controller.js"></script>
 		<script type="text/javascript" src="./js/pages/profile/controller.js"></script>
+		<script type="text/javascript" src="./js/pages/notifications/controller.js"></script>
 
 		<script type="text/javascript" src="./js/index.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="./assets/css/vendor/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./assets/css/vendor/jquery-ui.css">
 	</head>
 	<body ng-app='aTwitter'>
-		<ng-view></ng-view>		
+		<ng-view></ng-view>				
 	</body>
 </html>

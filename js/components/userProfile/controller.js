@@ -2,7 +2,8 @@ userProfile.controller("UserProfileController",function($scope,userService){
 	$scope.$watch("profile",function(){
 		var follow_list=userService.follows({userHandle:localStorage.userHandle});
 		follow_list.$promise.then(function(follows){
-				console.log(follows.body);
+				if(localStorage.userHandle==$scope.profile.userHandle)
+					$scope.self=true;
 				if(!localStorage.Identifier)
 					$scope.followBtn=false;
 				else{
@@ -34,7 +35,21 @@ userProfile.controller("UserProfileController",function($scope,userService){
 			if(res.message.UserFollowed)
 				$scope.followBtn=false;
 		})
+	}
 
+	$scope.unfollow=function(unfollowHandle){
+		// console.log(followHandle);
+		var tokenId=localStorage.Identifier;
+		var userHandle=localStorage.userHandle;
+		var user=new userService();
+
+		user.tokenId=tokenId;
+		user.unfollowHandle=unfollowHandle;
+		user.userHandle=userHandle;
+		user.$unfollow(function(res){
+			if(res.message.UserUnFollowed)
+				$scope.followBtn=true;
+		})
 	}
 	
 })
