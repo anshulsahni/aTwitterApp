@@ -46,11 +46,12 @@ angular.module("aTwitter",[
  		})
  		.state("index.home",{
  			url:"/home",
+ 			abstract:".followsTweets",
  			templateUrl:"./js/pages/home/index.html",
  			controller:"HomeController"
  		})
  		.state("index.home.followsTweets",{
- 			url:"/home",
+ 			url:"",
  			templateUrl:"./js/pages/home/followsTweets/template.html",
  			controller:"FollowsTweetsController"
  		})
