@@ -5,7 +5,7 @@ header.controller("HeaderController",function($scope,userService,$location){
 		user.userHandle=localStorage.userHandle;
 		user.$signOut(function(){
 			console.log(user);
-			if(!user.error && user.message.TokenSuccessfFullyExpired){
+			if(!user.error && user.message.TokenSuccessfullyExpired){
 				localStorage.removeItem("Identifier");
 				localStorage.removeItem("userHandle");
 				$location.path("/signIn")

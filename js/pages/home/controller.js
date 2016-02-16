@@ -29,13 +29,12 @@ pages.controller("HomeController",function($scope,userService,tweetSocket){
 
 	socket.on("TweetNotify",function(data){
 		$scope.notifCount++;
-		console.log(data);
 		$scope.$apply();
 
 	})
 	socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
 	socket.on("TransferFollowsTweets",function(data){
-		$scope.followTweets=$scope.followTweets.concat(data.data)
+		$scope.followTweets=data.data
 		console.log(data.data);
 		$scope.$apply();
 	})

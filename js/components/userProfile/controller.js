@@ -1,4 +1,4 @@
-userProfile.controller("UserProfileController",function($scope,userService){
+userProfile.controller("UserProfileController",function($scope,userService,tweetSocket){
 	$scope.$watch("profile",function(){
 		var follow_list=userService.follows({userHandle:localStorage.userHandle});
 		follow_list.$promise.then(function(follows){
@@ -21,7 +21,7 @@ userProfile.controller("UserProfileController",function($scope,userService){
 				}	
 			})			
 		})
-
+	socket=tweetSocket;
 	$scope.follow=function(followHandle){
 		// console.log(followHandle);
 		var tokenId=localStorage.Identifier;
@@ -32,8 +32,11 @@ userProfile.controller("UserProfileController",function($scope,userService){
 		user.followHandle=followHandle;
 		user.userHandle=userHandle;
 		user.$follow(function(res){
-			if(res.message.UserFollowed)
+			if(res.message.UserFollowed){
 				$scope.followBtn=false;
+				socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
+			}
+
 		})
 	}
 
@@ -47,8 +50,10 @@ userProfile.controller("UserProfileController",function($scope,userService){
 		user.unfollowHandle=unfollowHandle;
 		user.userHandle=userHandle;
 		user.$unfollow(function(res){
-			if(res.message.UserUnFollowed)
+			if(res.message.UserUnFollowed){
 				$scope.followBtn=true;
+				socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
+			}
 		})
 	}
 	
