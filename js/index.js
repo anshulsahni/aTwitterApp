@@ -2,13 +2,14 @@ angular.module("aTwitter",[
 	"pages",
 	"components",
 	"services",
-	"ngRoute",
+	"ui.router",
 	"ngResource",
 	"ui.bootstrap",
 	])
- .config(function($routeProvider){
- 	$routeProvider
- 		.when("/signIn",{
+ .config(function($stateProvider,$urlRouterProvider){
+ 	$stateProvider
+ 		.state("signIn",{
+ 			url:"/signIn",
  			templateUrl:"./js/pages/signIn/index.html",
  			controller:"SignInController",
  			resolve:{
@@ -18,7 +19,8 @@ angular.module("aTwitter",[
  				}
  			}
  		})
- 		.when("/signUp",{
+ 		.state("signUp",{
+ 			url:"/signUp",
  			templateUrl:"./js/pages/signUp/index.html",
  			controller:"SignUpController",
  			resolve:{
@@ -28,35 +30,33 @@ angular.module("aTwitter",[
  				}
  			}
  		})
- 		.when("/",{
- 			templateUrl:"./js/pages/home/index.html",
- 			controller:"HomeController",
+ 		.state("index",{
+ 			url:"",
+ 			templateUrl:"./js/pages/index/index.html",
+ 			controller:"IndexController",
  			resolve:{
  				checkLogin:function($location){
  					if(!localStorage.Identifier)
  						$location.path("/signIn")
+ 					else{
+ 						$location.path("/home")
+ 					}
  				}
  			}
  		})
- 		.when("/notifications",{
+ 		.state("index.home",{
+ 			url:"/home",
+ 			templateUrl:"./js/pages/home/index.html",
+ 			controller:"HomeController"
+ 		})
+ 		.state("index.notifications",{
+ 			url:"/notifications",
  			templateUrl:"./js/pages/notifications/index.html",
  			controller:"NotificationsController",
- 			resolve:{
- 				checkLogin:function($location){
- 					if(!localStorage.Identifier)
- 						$location.path("/signIn")
- 				}
- 			}
  		})
- 		.when("/:userHandle",{
+ 		.state("index.profile",{
+ 			url:"/:userHandle",
  			templateUrl:"./js/pages/profile/index.html",
- 			controller:"ProfileController",
- 			resolve:{
- 				check:function($location,$routeParams){
- 					console.log($routeParams);
- 					if($routeParams.userHandle==localStorage.userHandle)
- 						$location.path("/")
- 				}
- 			}
+ 			controller:"ProfileController"
  		})
  })

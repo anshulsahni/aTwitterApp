@@ -1,19 +1,9 @@
 pages.controller("HomeController",function($scope,userService,tweetSocket){
 	var tokenId=localStorage.Identifier;
 	var userHandle=localStorage.userHandle;
-	$scope.notifCount=0;
 	var socket=tweetSocket;
 
-	$scope.userProfile=userService.get({userHandle:userHandle});
-	$scope.userProfile.$promise.then(function($location){
-		if($scope.userProfile.error){
-			localStorage.clear();
-			$location.path("/signIn")
-		}
-	})
-
 	$scope.profiles=userService.get();
-	console.log($scope.profiles);
 
 	$scope.sock=socket;
 	$scope.tweets=[];
@@ -27,11 +17,7 @@ pages.controller("HomeController",function($scope,userService,tweetSocket){
 		$scope.$apply();
 	})
 
-	socket.on("TweetNotify",function(data){
-		$scope.notifCount++;
-		$scope.$apply();
-
-	})
+	
 	socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
 	socket.on("TransferFollowsTweets",function(data){
 		$scope.followTweets=data.data
@@ -45,13 +31,6 @@ pages.controller("HomeController",function($scope,userService,tweetSocket){
 	socket.on("TransferAllTweetsUpdate",function(data){
 		$scope.allTweets.unshift(data.data)
 		$scope.$apply();
-	})
-
-	var user=new userService;
-	user.tokenId=tokenId;
-	user.userHandle=userHandle;
-	user.$unreadNotifications(function(){
-		$scope.notifCount=user.body.length
 	})
 
 })

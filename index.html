@@ -5,13 +5,13 @@
 
 		<script type="text/javascript" src="./js/vendor/socket.js"></script>
 		<script type="text/javascript" src="./js/vendor/angular.js"></script>
-		<script type="text/javascript" src="./js/vendor/angular-route.js"></script>
+		<!-- <script type="text/javascript" src="./js/vendor/angular-route.js"></script> -->
 		<script type="text/javascript" src="./js/vendor/angular-resource.js"></script>
 		<script type="text/javascript" src="./js/vendor/ui-bootstrap.js"></script>
 		<script type="text/javascript" src="./js/vendor/jquery-1.7.js"></script>
 		<script type="text/javascript" src="./js/vendor/jquery-ui-1.8.js"></script>
 		<script type="text/javascript" src="./js/vendor/autocomplete.js"></script>
-		<!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-sanitize.js"></script> -->
+		<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 
 		<script type="text/javascript" src="./js/services/module.js"></script>
 
@@ -62,6 +62,7 @@
 		<script type="text/javascript" src="./js/pages/home/controller.js"></script>
 		<script type="text/javascript" src="./js/pages/profile/controller.js"></script>
 		<script type="text/javascript" src="./js/pages/notifications/controller.js"></script>
+		<script type="text/javascript" src="./js/pages/index/controller.js"></script>
 
 		<script type="text/javascript" src="./js/index.js"></script>
 
@@ -69,6 +70,6 @@
 		<link rel="stylesheet" type="text/css" href="./assets/css/vendor/jquery-ui.css">
 	</head>
 	<body ng-app='aTwitter'>
-		<ng-view></ng-view>				
+		<div ui-view></div>			
 	</body>
 </html>
