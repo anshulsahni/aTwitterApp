@@ -13,7 +13,7 @@ signUpForm.controller("SignUpFormController",function($scope,userService){
 			$scope.signUpError="User Handle Cannot Contain Space";
 			return;
 		}
-		else if(re.test($scope.email)){
+		else if(!re.test($scope.email)){
 			$scope.signUpError="Invalid Email format";
 			return;
 		}
