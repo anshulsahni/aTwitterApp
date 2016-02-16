@@ -49,6 +49,19 @@ angular.module("aTwitter",[
  			templateUrl:"./js/pages/home/index.html",
  			controller:"HomeController"
  		})
+ 		.state("index.home.followsTweets",{
+ 			url:"/home",
+ 			templateUrl:"./js/pages/home/followsTweets/template.html",
+ 			controller:"FollowsTweetsController"
+ 		})
+ 		.state("index.home.allTweets",{
+ 			templateUrl:"./js/pages/home/allTweets/template.html",
+ 			controller:"AllTweetsController"
+ 		})
+ 		.state("index.home.allUsers",{
+ 			templateUrl:"./js/pages/home/allUsers/template.html",
+ 			controller:"AllUsersController"
+ 		})
  		.state("index.notifications",{
  			url:"/notifications",
  			templateUrl:"./js/pages/notifications/index.html",

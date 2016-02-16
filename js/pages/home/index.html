@@ -1,5 +1,4 @@
-<div class='container-fluid'>
-	<!-- <header profile='userProfile.body' notif-count="notifCount"></header> -->
+<div>
 	<div class='row' style='margin:100px auto;'>
 		<div class='col-md-3'></div>
 		<div class='col-md-6'>
@@ -10,50 +9,18 @@
 	<div class='row'>
 		<div class='col-md-3'></div>
 		<div class='col-md-6'>
-			<uib-tabset>
-				<uib-tab heading="Followers' Tweets" active="tab.active">
-					<div class='panel panel-danger'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
-								Followers' Tweets
-							</div>
-						</div>
-					</div>
-					<div class='row' ng-repeat="twet in followTweets">
-						<div class='col-md-12'>
-							<tweet-view tweet='twet'></tweet-view>
-						</div>
-					</div>
-				</uib-tab>
-				<uib-tab heading="All Tweets">
-					<div class='panel panel-danger'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
-								All Tweets
-							</div>
-						</div>
-					</div>
-					<div class='row' ng-repeat="twet in allTweets">
-						<div class='col-md-12'>
-							<tweet-view tweet="twet"></tweet-view>
-						</div>
-					</div>
-				</uib-tab>
-				<uib-tab heading="All Users">
-					<div class='panel panel-danger'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
-								All Users
-							</div>
-						</div>
-					</div>
-					<div class='row' ng-repeat="profile in profiles.body">
-						<div class='col-md-12'>
-							<user-profile profile='profile'></user-profile>
-						</div>
-					</div>					
-				</uib-tab>
-			</uib-tabset>
+			<div class='row'>
+				<div class='col-xs-4'>
+					<a ui-sref=".followsTweets" class='btn btn-danger'>Follows Tweets</a>
+				</div>
+				<div class='col-xs-4'>
+					<a ui-sref=".allTweets" class='btn btn-danger'>All Tweets</a>
+				</div>
+				<div class='col-xs-4'>
+					<a ui-sref=".allUsers" class='btn btn-danger'>All Users</a>
+				</div>
+			</div>
+			<div ui-view></div>
 		</div>
 		<div class='col-md-3'></div>
 	</div>
