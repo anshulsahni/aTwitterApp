@@ -35,12 +35,15 @@ pages.controller("HomeController",function($scope,userService,tweetSocket){
 	socket.emit("FollowsTweets",{userHandle:localStorage.userHandle,tokenId:localStorage.Identifier});
 	socket.on("TransferFollowsTweets",function(data){
 		$scope.followTweets=data.data
-		console.log(data.data);
 		$scope.$apply();
 	})
 	socket.emit("AllTweets");
 	socket.on("TransferAllTweets",function(data){
-		$scope.allTweets=$scope.allTweets.concat(data.data);
+		$scope.allTweets=$scope.allTweets.concat(data.data)
+		$scope.$apply();
+	})
+	socket.on("TransferAllTweetsUpdate",function(data){
+		$scope.allTweets.unshift(data.data)
 		$scope.$apply();
 	})
 

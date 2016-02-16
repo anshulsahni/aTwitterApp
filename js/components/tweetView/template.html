@@ -1,7 +1,7 @@
 <div class='panel panel-danger'>
 	<div class='panel-body'>
 		<span class='small text-danger'>{{printCreationTime()}}</span>
-		<div class='text-danger' ng-bind='tweet.content'> </div>
+		<div class='text-danger' ng-bind-html='tweet.content'> </div>
 		<div class='small text-danger pull-right' ng-bind='tweet.author.name'> </div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 pages.controller("ProfileController",function($scope,userService,$routeParams,tweetSocket,tweetService){
 	var socket=tweetSocket;
+	$scope.userNotFound=false;
 	userService.get({userHandle:$routeParams.userHandle},function(res){
 		if(res.message.UserNotFound)
 			$scope.userNotFound=true;
@@ -8,9 +9,11 @@ pages.controller("ProfileController",function($scope,userService,$routeParams,tw
 		}
 	});
 	$scope.tweets=[];
-	tweetService.byAuthor({userHandle:$routeParams.userHandle},function(res){
-		$scope.tweets=res.body;
-	})
+	if(!$scope.userNotFound){
+		tweetService.byAuthor({userHandle:$routeParams.userHandle},function(res){
+			$scope.tweets=res.body;
+		})
+	}
 	socket.on("TweetsIncoming",function(data){
 		console.log(data);
 		for(i in data.data){

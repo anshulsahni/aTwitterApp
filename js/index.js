@@ -4,7 +4,7 @@ angular.module("aTwitter",[
 	"services",
 	"ngRoute",
 	"ngResource",
-	"ui.bootstrap"
+	"ui.bootstrap",
 	])
  .config(function($routeProvider){
  	$routeProvider
