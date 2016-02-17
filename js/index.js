@@ -31,16 +31,12 @@ angular.module("aTwitter",[
  			}
  		})
  		.state("index",{
- 			url:"",
  			templateUrl:"./js/pages/index/index.html",
  			controller:"IndexController",
  			resolve:{
  				checkLogin:function($location){
  					if(!localStorage.Identifier)
  						$location.path("/signIn")
- 					else{
- 						$location.path("/home")
- 					}
  				}
  			}
  		})
