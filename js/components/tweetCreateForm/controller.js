@@ -1,5 +1,5 @@
-tweetCreateForm.controller("TweetCreateFormController",function($scope,userService){
-	var socket=$scope.socket;
+tweetCreateForm.controller("TweetCreateFormController",function($scope,userService,tweetSocket){
+	var socket=tweetSocket;
 	$scope.allUsers=userService.allHandles();
 	console.log($scope.allUsers);
 	$scope.allUsers.$promise.then(function(){
