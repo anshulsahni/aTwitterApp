@@ -13,7 +13,7 @@ pages.controller("IndexController",function($scope,userService,tweetSocket){
 	user.tokenId=localStorage.Identifier;
 	user.userHandle=localStorage.userHandle;
 	user.$unreadNotifications(function(){
-		$scope.notifCount=user.body.length
-		console.log(user);
+		if(user.body)
+			$scope.notifCount=user.body.length
 	})
 })

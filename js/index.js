@@ -8,6 +8,7 @@ angular.module("aTwitter",[
 	])
  .config(function($stateProvider,$urlRouterProvider){
  	$urlRouterProvider.when("","/home");
+ 	// $urlRouterProvider.when("/","/home");
 
  	$stateProvider
  		.state("signIn",{
@@ -15,9 +16,9 @@ angular.module("aTwitter",[
  			templateUrl:"./js/pages/signIn/index.html",
  			controller:"SignInController",
  			resolve:{
- 				checkLogin:function($location){
+ 				checkLogin:function($state){
  					if(localStorage.Identifier)
- 						$location.path("/home")
+ 						$state.go("index.home")
  				}
  			}
  		})
@@ -26,9 +27,9 @@ angular.module("aTwitter",[
  			templateUrl:"./js/pages/signUp/index.html",
  			controller:"SignUpController",
  			resolve:{
- 				checkLogin:function($location){
+ 				checkLogin:function($state){
  					if(localStorage.Identifier)
- 						$location.path("/home")
+ 						$state.go("index.home")
  				}
  			}
  		})
@@ -37,9 +38,10 @@ angular.module("aTwitter",[
  			templateUrl:"./js/pages/index/index.html",
  			controller:"IndexController",
  			resolve:{
- 				checkLogin:function($location){
- 					if(!localStorage.Identifier)
- 						$location.path("/signIn")
+ 				checkLogin:function($window){
+ 					if(!localStorage.Identifier){
+ 						$window.location.href="#/signIn"
+ 					}
  				}
  			}
  		})
@@ -47,7 +49,14 @@ angular.module("aTwitter",[
  			url:"/home",
  			abstract:".followsTweets",
  			templateUrl:"./js/pages/index/home/index.html",
- 			controller:"HomeController"
+ 			controller:"HomeController",
+ 			resolve:{
+ 				checkLogin:function($window){
+ 					if(!localStorage.Identifier){
+ 						$window.location.href="#signIn"
+ 					}
+ 				}
+ 			}
  		})
  		.state("index.home.followsTweets",{
  			url:"",
@@ -66,10 +75,24 @@ angular.module("aTwitter",[
  			url:"/notifications",
  			templateUrl:"./js/pages/index/notifications/index.html",
  			controller:"NotificationsController",
+ 			resolve:{
+ 				checkLogin:function($window){
+ 					if(!localStorage.Identifier){
+ 						$window.location.href="#signIn"
+ 					}
+ 				}
+ 			}
  		})
  		.state("index.profile",{
  			url:"/:userHandle",
  			templateUrl:"./js/pages/index/profile/index.html",
- 			controller:"ProfileController"
+ 			controller:"ProfileController",
+ 			resolve:{
+ 				checkLogin:function($window){
+ 					if(!localStorage.Identifier){
+ 						$window.location.href="#signIn"
+ 					}
+ 				}
+ 			}
  		})
  })
