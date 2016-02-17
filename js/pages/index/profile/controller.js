@@ -13,6 +13,7 @@ pages.controller("ProfileController",function($scope,userService,$stateParams,tw
 	if(!$scope.userNotFound){
 		tweetService.byAuthor({userHandle:$stateParams.userHandle},function(res){
 			$scope.tweets=res.body;
+			$scope.loading=false;
 		})
 	}
 	socket.on("TweetsIncoming",function(data){
@@ -20,7 +21,7 @@ pages.controller("ProfileController",function($scope,userService,$stateParams,tw
 		for(i in data.data){
 			$scope.tweets.push(data.data[i]);			
 		}
-		$scope.loading=false;
+		console.log($scope.loading);
 		$scope.$apply();
 	})
 })
