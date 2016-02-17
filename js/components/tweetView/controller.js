@@ -1,5 +1,6 @@
 tweetView.controller("TweetViewController",function($scope,userService,$sce){
 	$scope.printCreationTime=function(){
+		console.log($scope.tweet.creationTime);
 		var date= new Date($scope.tweet.creationTime);
 		return date.toString();
 	}

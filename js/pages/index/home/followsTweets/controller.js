@@ -5,4 +5,8 @@ pages.controller("FollowsTweetsController",function($scope,tweetSocket){
 		$scope.tweets=data.data
 		$scope.$apply();
 	})
+	socket.on("FollowsTweetsUpdate",function(data){
+		$scope.tweets.unshift(data.data)
+		$scope.$apply();
+	})
 })

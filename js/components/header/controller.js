@@ -19,6 +19,7 @@ header.controller("HeaderController",function($scope,userService,$location,tweet
 		$scope.$apply();
 	})
 	socket.on("NotifsMarkedRead",function(){
+		console.log("notif=0");
 		$scope.notifCount=0;
 		$scope.$apply();
 	})

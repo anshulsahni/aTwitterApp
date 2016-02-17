@@ -12,6 +12,15 @@ pages.controller("NotificationsController",function($scope,tweetSocket,userServi
 		user.$markNotifRead();
 	})
 	var socket=tweetSocket;
+	socket.on("TweetNotifyContent",function(data){
+		$scope.notifications.unshift(data)
+		$scope.$apply();
+		socket.emit("NotifsRead",localStorage.userHandle);
+	})
 	socket.emit("NotifsRead",localStorage.userHandle);
+
+	$scope.$on("$destroy",function(event){
+		socket.removeListener("TweetNotifyContent")
+	})
 
 })
