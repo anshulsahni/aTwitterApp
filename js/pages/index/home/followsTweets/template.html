@@ -1,4 +1,9 @@
 <div style='position:relative;margin:100px auto;'>
+	<div class='row' ng-show="loading">
+		<div class='col-md-12'>
+			<h1>LOADING...</h1>
+		</div>
+	</div>
 	<div class='row' ng-repeat="twet in tweets">
 		<div class='col-md-12'>
 			<tweet-view tweet="twet"></tweet-view>

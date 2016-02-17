@@ -16,6 +16,11 @@
 	<div class='row' ng-hide='userNotFound'>
 		<div class="col-md-3"></div>
 		<div class='col-md-6'>
+			<div class='row' ng-show="loading">
+				<div class='col-md-12'>
+					<h1>Loading...</h1>
+				</div>
+			</div>
 			<div class='row' ng-repeat="twet in tweets">
 				<div class='col-md-12'>
 					<tweet-view tweet="twet"></tweet-view>

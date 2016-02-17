@@ -19,7 +19,7 @@ signInForm.controller("SignInFormController",function($scope,userService,$locati
 				if(user.message.TokenCreated){
 					 localStorage.setItem("Identifier",user.body.tokenId);
 					 localStorage.setItem("userHandle",$scope.userHandle);
-					 $location.path("/")
+					 $location.path("/home")
 				}
 				else{
 					$scope.logInError="Unexpected Error";

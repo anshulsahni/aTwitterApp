@@ -1,4 +1,5 @@
 pages.controller("ProfileController",function($scope,userService,$stateParams,tweetSocket,tweetService){
+	$scope.loading=true;
 	var socket=tweetSocket;
 	$scope.userNotFound=false;
 	userService.get({userHandle:$stateParams.userHandle},function(res){
@@ -19,6 +20,7 @@ pages.controller("ProfileController",function($scope,userService,$stateParams,tw
 		for(i in data.data){
 			$scope.tweets.push(data.data[i]);			
 		}
+		$scope.loading=false;
 		$scope.$apply();
 	})
 })

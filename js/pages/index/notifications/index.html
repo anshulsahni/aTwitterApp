@@ -2,6 +2,11 @@
 	<div class='row' style='margin:100px auto;'>
 		<div class='col-md-3'></div>
 		<div class='col-md-6'>
+			<div class='row' ng-show="loading">
+				<div class='col-md-12'>
+					<h1>Loading...</h1>
+				</div>
+			</div>
 			<div class='row' ng-repeat="notif in notifications">
 				<div class='col-md-12'>
 					<notif details='notif'></notif>

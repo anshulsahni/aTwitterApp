@@ -22,7 +22,7 @@ signUpForm.controller("SignUpFormController",function($scope,userService){
 		new_user.email=$scope.email;
 		new_user.password=$scope.password;
 		new_user.userHandle=$scope.userHandle;
-		console.log(new_user);
+		$scope.signUpError="Sending Data..."
 		new_user.$signUp(function(){
 			console.log(new_user);
 			if(new_user.error){

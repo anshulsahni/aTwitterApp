@@ -1,4 +1,5 @@
 pages.controller("NotificationsController",function($scope,tweetSocket,userService){
+	$scope.loading=true;
 	$scope.notifications=[];
 	var user=new userService();
 	user.tokenId=localStorage.Identifier;
@@ -6,6 +7,7 @@ pages.controller("NotificationsController",function($scope,tweetSocket,userServi
 	notificationResponse=user.$notifications();
 	notificationResponse.then(function(data){
 		$scope.notifications=data.body;
+		$scope.loading=false;
 		var user=new userService();
 		user.tokenId=localStorage.Identifier;
 		user.userHandle=localStorage.userHandle;
