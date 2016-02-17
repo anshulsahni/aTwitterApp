@@ -9,14 +9,11 @@ pages.controller("IndexController",function($scope,userService,tweetSocket){
 		}
 	})
 
-	socket.on("TweetNotify",function(data){
-		$scope.notifCount++;
-	})
-
 	var user=new userService;
 	user.tokenId=localStorage.Identifier;
 	user.userHandle=localStorage.userHandle;
 	user.$unreadNotifications(function(){
 		$scope.notifCount=user.body.length
+		console.log(user);
 	})
 })

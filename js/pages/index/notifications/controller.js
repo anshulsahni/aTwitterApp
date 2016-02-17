@@ -12,14 +12,6 @@ pages.controller("NotificationsController",function($scope,tweetSocket,userServi
 		user.$markNotifRead();
 	})
 	var socket=tweetSocket;
-	socket.on("TweetNotify",function(data){
-		console.log("anshul");
-		$scope.notifications.push(data)
-		$scope.$apply();
-		var user=new userService;
-		user.tokenId=localStorage.Identifier;
-		user.userHandle=localStorage.userHandle;
-		user.$markNotifRead();
-	})
+	socket.emit("NotifsRead",localStorage.userHandle);
 
 })

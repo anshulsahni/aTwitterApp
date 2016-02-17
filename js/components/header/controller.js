@@ -1,4 +1,4 @@
-header.controller("HeaderController",function($scope,userService,$location){
+header.controller("HeaderController",function($scope,userService,$location,tweetSocket){
 	$scope.signOut=function(){
 		var user=new userService
 		user.tokenId=localStorage.Identifier;
@@ -12,4 +12,14 @@ header.controller("HeaderController",function($scope,userService,$location){
 			}
 		})
 	}
+	var socket=tweetSocket;
+	socket.on("TweetNotify",function(data){
+		console.log(data);
+		$scope.notifCount++;
+		$scope.$apply();
+	})
+	socket.on("NotifsMarkedRead",function(){
+		$scope.notifCount=0;
+		$scope.$apply();
+	})
 })
