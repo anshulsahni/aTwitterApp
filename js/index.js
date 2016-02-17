@@ -47,30 +47,30 @@ angular.module("aTwitter",[
  		.state("index.home",{
  			url:"/home",
  			abstract:".followsTweets",
- 			templateUrl:"./js/pages/home/index.html",
+ 			templateUrl:"./js/pages/index/home/index.html",
  			controller:"HomeController"
  		})
  		.state("index.home.followsTweets",{
  			url:"",
- 			templateUrl:"./js/pages/home/followsTweets/template.html",
+ 			templateUrl:"./js/pages/index/home/followsTweets/template.html",
  			controller:"FollowsTweetsController"
  		})
  		.state("index.home.allTweets",{
- 			templateUrl:"./js/pages/home/allTweets/template.html",
+ 			templateUrl:"./js/pages/index/home/allTweets/template.html",
  			controller:"AllTweetsController"
  		})
  		.state("index.home.allUsers",{
- 			templateUrl:"./js/pages/home/allUsers/template.html",
+ 			templateUrl:"./js/pages/index/home/allUsers/template.html",
  			controller:"AllUsersController"
  		})
  		.state("index.notifications",{
  			url:"/notifications",
- 			templateUrl:"./js/pages/notifications/index.html",
+ 			templateUrl:"./js/pages/index/notifications/index.html",
  			controller:"NotificationsController",
  		})
  		.state("index.profile",{
  			url:"/:userHandle",
- 			templateUrl:"./js/pages/profile/index.html",
+ 			templateUrl:"./js/pages/index/profile/index.html",
  			controller:"ProfileController"
  		})
  })
