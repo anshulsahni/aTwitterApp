@@ -7,6 +7,8 @@ angular.module("aTwitter",[
 	"ui.bootstrap",
 	])
  .config(function($stateProvider,$urlRouterProvider){
+ 	$urlRouterProvider.when("","/home");
+
  	$stateProvider
  		.state("signIn",{
  			url:"/signIn",
@@ -15,7 +17,7 @@ angular.module("aTwitter",[
  			resolve:{
  				checkLogin:function($location){
  					if(localStorage.Identifier)
- 						$location.path("/")
+ 						$location.path("/home")
  				}
  			}
  		})
@@ -26,7 +28,7 @@ angular.module("aTwitter",[
  			resolve:{
  				checkLogin:function($location){
  					if(localStorage.Identifier)
- 						$location.path("/")
+ 						$location.path("/home")
  				}
  			}
  		})
@@ -38,9 +40,6 @@ angular.module("aTwitter",[
  				checkLogin:function($location){
  					if(!localStorage.Identifier)
  						$location.path("/signIn")
- 					else{
- 						$location.path("/home")
- 					}
  				}
  			}
  		})
